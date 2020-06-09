@@ -11,12 +11,9 @@ $url=$url_arr[sizeof($url_arr)-1];
 if($url==''){
     $controller->index();
 }
+else if(method_exists($controller, $url)){
+    $controller->$url();
+}
 else{
-    if(method_exists($controller, $url)){
-        $controller->$url();
-    }
-    else{
-        // echo "Not Exists";
-        $controller->index();
-    }
+    $controller->index();
 }
