@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/login-register.css">
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/ZunderZhat/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/ZunderZhat/css/login-register.css">
+    <script src="/ZunderZhat/bootstrap/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -22,6 +22,9 @@
             <input type="password" class="form-control" id="exampleInputPassword1" name="password">
         </div>
         <button type="submit" class="btn btn-primary">Login</button>
+        <br>
+        <br>
+        <a href="register">Not have account ?</a>
     </form>
 
 </body>

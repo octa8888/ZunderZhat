@@ -1,0 +1,21 @@
+.body-content{
+    width: 60%;
+    margin:auto;
+    margin-top: 2vw;
+}
+
+.chat-part{
+    height: 35vw;
+    overflow: auto;
+}
+
+.chat-content{
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    margin:1vw 0;
+    padding: 0.5vw;
+}
+
+.chat-content>.user{
+    font-size: 27px;
+}

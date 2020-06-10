@@ -2,7 +2,7 @@
 include '../helper/include.php';
 
 if(!isset($_POST['username'])||!isset($_POST['password'])){
-    header("location: ".url('register'));
+    header("location: ".url('login'));
 }
 
 $username=$_POST['username'];
@@ -12,7 +12,7 @@ $sql="select * from user where username='".$username."' and password ='".$passwo
 $req=$conn->query($sql);
 if($req->num_rows==1){
     $row=$req->fetch_assoc();
-    $_SESSION['user']=$row['username'];
+    $_SESSION['user_id']=$row['id'];
     header("location: ../index");
 }
 else{

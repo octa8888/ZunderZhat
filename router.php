@@ -7,6 +7,8 @@ include('controller/routing_controller.php');
 $controller=new RoutingController();
 
 $url=$url_arr[sizeof($url_arr)-1];
+$url=explode('?',$url);
+$url=$url[0];
 
 if($url==''){
     $controller->index();
