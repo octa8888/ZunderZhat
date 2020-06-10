@@ -21,4 +21,7 @@ class RoutingController{
     public function friend(){
         include 'friend.php';
     }
+    public function private_chat(){
+        include 'private_chat.php';
+    }
 }

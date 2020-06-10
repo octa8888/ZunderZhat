@@ -29,7 +29,7 @@ function getData() {
 }
 
 function openPrivateChat(msgId) {
-    
+    window.location.href="private_chat?msg_id="+msgId;
 }
 
 
