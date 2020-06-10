@@ -25,11 +25,10 @@ function getData() {
                 `;
             }
             $('.chat-part').html(html);
-
         }
     });
 }
 
 $(document).ready(function () {
-    getData();
+    setInterval(getData(),3000);
 });
