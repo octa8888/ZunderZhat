@@ -6,6 +6,7 @@ if (!isset($_SESSION['user_id'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,14 +19,43 @@ if (!isset($_SESSION['user_id'])) {
         var currUser = <?= $_SESSION['user_id']; ?>
     </script>
     <script src="/ZunderZhat/js/jquery.js"></script>
-    <script src="/ZunderZhat/js/index.js"></script>
+    <script src="/ZunderZhat/js/friend.js"></script>
 </head>
+
 <body>
     <?php
     include 'header.php';
-    ?>    
+    ?>
 
-
+    <div class="body-content">
+        <form action="controller/friend_controller.php" method="POST">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Input your message" aria-label="Recipient's username" aria-describedby="button-addon2" name="username">
+                <div class="input-group-append">
+                    <input type="submit" name="send" class="btn btn-outline-secondary" type="button" id="button-addon2" value="Send">
+                </div>
+            </div>
+        </form>
+        <div class="friend-part">
+            <!-- <div class="req">
+                <h2>
+                    User
+                </h2>
+                <div style="display:flex">
+                    <form action="controller/friend_controller.php" method="post" style="margin-right:1vw">
+                        <input type="hidden" name="user_id" value="">
+                        <input type="hidden" name="req_id" value="">
+                        <button type="submit" class="btn btn-primary" name="accept">Accept</button>
+                    </form>
+                    <form action="controller/friend_controller.php" method="post">
+                        <input type="hidden" name="user_id" value="">
+                        <button type="submit" class="btn btn-danger" name="reject">Reject</button>
+                    </form>
+                </div>
+            </div> -->
+        </div>
+    </div>
 
 </body>
+
 </html>

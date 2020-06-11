@@ -20,15 +20,38 @@ if (!isset($_SESSION['user_id'])) {
         var currUser = <?= $_SESSION['user_id']; ?>
     </script>
     <script src="/ZunderZhat/js/jquery.js"></script>
-    <script src="/ZunderZhat/js/private.js"></script>
+    <script src="/ZunderZhat/js/private_chat.js"></script>
 </head>
 
 <body>
     <?php
     include 'header.php';
-    
-    echo $_GET['msg_id'];
     ?>
+    <script>
+        var msgId = <?=$_GET['msg_id']?>
+    </script>
+
+    <div class="body-content">
+        <div class="chat-part">
+            <!-- <div class="chat-content">
+                <div class="user">
+                    user1
+                </div>
+                <div class="content">
+                    content
+                </div>
+            </div> -->
+        </div>
+        <form action="controller/private_chat_controller.php" method="POST">
+            <input type="hidden" name="msg_id" value="<?=$_GET['msg_id']?>">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Input your message" aria-label="Recipient's username" aria-describedby="button-addon2" name="message">
+                <div class="input-group-append">
+                    <input type="submit" name="send" class="btn btn-outline-secondary" type="button" id="button-addon2" value="Send">
+                </div>
+            </div>
+        </form>
+    </div>
 
 </body>
 

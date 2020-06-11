@@ -29,16 +29,6 @@ if (!isset($_SESSION['user_id'])) {
     ?>
 
     <div class="body-content">
-        <div class="chat-part">
-            <div class="chat-content">
-                <div class="user">
-                    user1
-                </div>
-                <div class="content">
-                    content
-                </div>
-            </div>
-        </div>
         <form action="controller/global_chat_controller.php" method="POST">
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Input your message" aria-label="Recipient's username" aria-describedby="button-addon2" name="message">
@@ -47,6 +37,16 @@ if (!isset($_SESSION['user_id'])) {
                 </div>
             </div>
         </form>
+        <div class="chat-part">
+            <!-- <div class="chat-content">
+                <div class="user">
+                    user1
+                </div>
+                <div class="content">
+                    content
+                </div>
+            </div> -->
+        </div>
     </div>
 
 </body>

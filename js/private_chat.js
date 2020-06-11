@@ -1,18 +1,19 @@
 var chatLen=0;
 function getData() {
     $.ajax({
-        url: '/ZunderZhat/controller/global_chat_controller.php',
+        url: '/ZunderZhat/controller/private_chat_controller.php',
         method: 'POST',
         data: {
-            'get_data': 'get_data',
+            'get_messages': 'get_messages',
+            'msg_id': msgId,
         },
         success: function (res) {
             var data = JSON.parse(res);
             var html = "";
             for (let i = 0; i < data.length; i++) {
-                var style="";
-                if(data[i].user_id==currUser){
-                    style=`style="border-color:green;"`;
+                var style = "";
+                if (data[i].user_id == currUser) {
+                    style = `style="border-color:green;"`;
                 }
                 html += `
                 <div class="chat-content" ${style}>
@@ -37,6 +38,7 @@ function getData() {
         }
     });
 }
+
 
 $(document).ready(function () {
     getData();

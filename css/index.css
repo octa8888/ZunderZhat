@@ -4,16 +4,21 @@
     margin-top: 2vw;
 }
 
-.chat-part{
+.chat-part,.friend-part{
     height: 35vw;
     overflow: auto;
 }
 
-.chat-content{
+.chat-content, .req{
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 4px;
     margin:1vw 0;
     padding: 0.5vw;
+}
+
+.req{
+    display: flex;
+    justify-content: space-between;
 }
 
 .chat-content>.user{
