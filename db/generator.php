@@ -44,3 +44,5 @@ $sql="create table friend_request(
     foreign key (to_id) references user(id)
 )";
 $conn->query($sql);
+
+header("location: index");
