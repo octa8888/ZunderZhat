@@ -39,6 +39,27 @@ function getData() {
     });
 }
 
+function uploadFile(e){
+    e.preventDefault();
+    var file=e.dataTransfer.files[0];
+    if(file == undefined){
+        return;
+    }
+    var formData=new FormData();
+    formData.append('file',file);
+    formData.append('file_upload','file_upload');
+    $.ajax({
+        url: '/ZunderZhat/controller/private_chat_controller.php',
+        method: 'POST',
+        data: formData,
+        contentType: false,
+        cache: false,
+        processData: false,
+        success: function(res){
+            alert(res);
+        },
+    });
+}
 
 $(document).ready(function () {
     getData();

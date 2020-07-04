@@ -32,7 +32,7 @@ if (!isset($_SESSION['user_id'])) {
     </script>
 
     <div class="body-content">
-        <div class="chat-part">
+        <div class="chat-part" id="file_upload" ondrop="uploadFile(event)" ondragover="return false">
             <!-- <div class="chat-content">
                 <div class="user">
                     user1
@@ -45,7 +45,7 @@ if (!isset($_SESSION['user_id'])) {
         <form action="controller/private_chat_controller.php" method="POST">
             <input type="hidden" name="msg_id" value="<?=$_GET['msg_id']?>">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Input your message" aria-label="Recipient's username" aria-describedby="button-addon2" name="message">
+                <input type="text" class="form-control" placeholder="Input your message" name="message">
                 <div class="input-group-append">
                     <input type="submit" name="send" class="btn btn-outline-secondary" type="button" id="button-addon2" value="Send">
                 </div>
