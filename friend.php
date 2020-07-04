@@ -3,6 +3,17 @@ include 'helper/include.php';
 if (!isset($_SESSION['user_id'])) {
     header("location: login");
 }
+if(isset($_GET['msg'])){
+    if($_GET['msg']==1){
+        echo "<script>alert('Request has been sent');</script>";
+    }
+    else if($_GET['msg']==2){
+        echo "<script>alert('Friend have been added or are in request list');</script>";
+    }
+    else if($_GET['msg']==3){
+        echo "<script>alert('Invalid username');</script>";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

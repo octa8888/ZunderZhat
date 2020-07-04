@@ -20,6 +20,10 @@ else if(isset($_POST['get_messages'])){
     echo json_encode($arr);
 }
 else if(isset($_POST['message'])&&isset($_POST['msg_id'])){
+    if($_POST['message']==""){
+        header("location: ../private_chat?msg_id=".$_POST['msg_id']);
+        return;
+    }
     $sql = "insert into private_message_detail(msg_id, user_id, message) values(".$_POST['msg_id'].",". $_SESSION['user_id'] . ",'" . $_POST['message'] . "')";
     $conn->query($sql);
 

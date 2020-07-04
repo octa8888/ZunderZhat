@@ -21,6 +21,16 @@
             <label for="exampleInputPassword1">Password</label>
             <input type="password" class="form-control" id="exampleInputPassword1" name="password">
         </div>
+        <div style="color:red">
+            <?php
+                if(isset($_GET['error'])){
+                    if($_GET['error']==1){
+                        echo "Invalid username or password";
+                    }
+                }
+            ?>
+        </div>
+        <br>
         <button type="submit" class="btn btn-primary">Login</button>
         <br>
         <br>

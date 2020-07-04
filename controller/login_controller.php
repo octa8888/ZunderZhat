@@ -16,5 +16,5 @@ if($req->num_rows==1){
     header("location: ../index");
 }
 else{
-    header("location: ../login");
+    header("location: ../login?error=1");
 }
