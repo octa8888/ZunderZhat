@@ -4,16 +4,22 @@
     margin-top: 2vw;
 }
 
+body{
+    /* background-color: #3399FF; */
+}
+
 .chat-part,.friend-part{
     height: 35vw;
     overflow: auto;
 }
 
 .chat-content, .req{
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    /* border: 1px solid rgba(0, 0, 0, 0.3); */
     border-radius: 4px;
+    background-color: #E0E0E0;
     margin:1vw 0;
     padding: 0.5vw;
+    width: 65%;
 }
 
 .req{
@@ -23,4 +29,22 @@
 
 .chat-content>.user{
     font-size: 27px;
+}
+.chat-content-2>.user{
+    font-size: 27px;
+}
+
+.chat-content-2{
+    background-color:rgba(38, 228, 63, 0.7);
+    border-radius: 4px;
+    width: 65%;
+    margin:1vw 0;
+    padding: 0.5vw;
+    position: relative;
+    right: -35%;
+}
+
+.btn-1{
+    color:white;
+    border-color: white;
 }

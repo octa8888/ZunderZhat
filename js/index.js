@@ -10,12 +10,12 @@ function getData() {
             var data = JSON.parse(res);
             var html = "";
             for (let i = 0; i < data.length; i++) {
-                var style="";
+                var style="chat-content";
                 if(data[i].user_id==currUser){
-                    style=`style="border-color:green;"`;
+                    style=`chat-content-2"`;
                 }
                 html += `
-                <div class="chat-content" ${style}>
+                <div class="${style}">
                     <div class="user">
                         ${data[i].username}
                     </div>

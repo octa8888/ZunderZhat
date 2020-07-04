@@ -16,7 +16,7 @@ function getData() {
                     username = data[i].user2_username;
                 }
                 html += `
-                    <div class="chat-content" style="cursor:pointer" onClick="openPrivateChat(${data[i].id})">
+                    <div class="chat-content" style="cursor:pointer; width:100% !important;" onClick="openPrivateChat(${data[i].id})">
                         <div class="user">
                             ${username}
                         </div>

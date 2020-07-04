@@ -29,11 +29,11 @@ if (!isset($_SESSION['user_id'])) {
     ?>
     <div class="body-content">
         <div class="chat-part">
-            <div class="chat-content" style="cursor:pointer">
+            <!-- <div class="chat-content" style="cursor:pointer; width:100% !important;">
                 <div class="user">
                     user1
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 
