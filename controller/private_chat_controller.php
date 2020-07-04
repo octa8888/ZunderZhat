@@ -23,7 +23,7 @@ else if(isset($_POST['message'])&&isset($_POST['msg_id'])){
         header("location: ../private_chat?msg_id=".$_POST['msg_id']);
         return;
     }
-    $sql = "insert into private_message_detail(msg_id, user_id, message) values(".$_POST['msg_id'].",". $_SESSION['user_id'] . ",'" . $_POST['message'] . "')";
+    $sql = "insert into private_message_detail(msg_id, user_id, message, type) values(".$_POST['msg_id'].",". $_SESSION['user_id'] . ",'" . $_POST['message'] . "','text')";
     $conn->query($sql);
 
     header("location: ../private_chat?msg_id=".$_POST['msg_id']);
@@ -37,7 +37,9 @@ else if(isset($_POST['file_upload'])){
     if($zipping){
         $zip->addFromString($_FILES['file']['name'], file_get_contents($_FILES['file']['tmp_name']));
         $zip->close();
-        
+
+        $sql = "insert into private_message_detail(msg_id, user_id, message, type) values(".$_POST['msg_id'].",". $_SESSION['user_id'] . ",'" . $fileName . ".zip','file')";
+        $conn->query($sql);
 
         echo "upload success";
     }

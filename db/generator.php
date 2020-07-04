@@ -30,6 +30,7 @@ $sql="create table private_message_detail(
     msg_id int,
     user_id int,
     message varchar(255),
+    type varchar(10),
     foreign key (msg_id) references private_message(id),
     foreign key (user_id) references user(id)
 )";

@@ -15,13 +15,20 @@ function getData() {
                 if(data[i].user_id==currUser){
                     style=`chat-content-2"`;
                 }
+                var text;
+                if(data[i].type=="text"){
+                    text=data[i].message
+                }
+                else if(data[i].type=="file"){
+                    text=`<a href="/ZunderZhat/uploads/${data[i].message}" style="text-decoration:none" download>${data[i].message}</a>`
+                }
                 html += `
                 <div class="${style}">
                     <div class="user">
                         ${data[i].username}
                     </div>
                     <div class="content">
-                        ${data[i].message}
+                        ${text}
                     </div>
                 </div>
                 `;
@@ -48,6 +55,7 @@ function uploadFile(e){
     var formData=new FormData();
     formData.append('file',file);
     formData.append('file_upload','file_upload');
+    formData.append('msg_id', msgId);
     $.ajax({
         url: '/ZunderZhat/controller/private_chat_controller.php',
         method: 'POST',
@@ -57,6 +65,7 @@ function uploadFile(e){
         processData: false,
         success: function(res){
             alert(res);
+            getData();
         },
     });
 }
