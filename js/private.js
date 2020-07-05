@@ -23,6 +23,13 @@ function getData() {
                     </div>
                 `
             }
+            if(data.length==0){
+                html=`
+                    <div style="display:flex; justify-content:center">
+                        <h3>There is no friend</h3>
+                    </div>
+                `;
+            }
             $('.chat-part').html(html);
         }
     });
