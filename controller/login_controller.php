@@ -26,6 +26,7 @@ $res=$stmt->get_result();
 
 if($res->num_rows==1){
     $row=$res->fetch_assoc();
+    session_regenerate_id();
     $_SESSION['user_id']=$row['id'];
     header("location: ../index");
 }
