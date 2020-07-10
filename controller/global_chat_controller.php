@@ -3,6 +3,7 @@ include '../helper/include.php';
 
 // sql injection
 // csrf
+// xss
 
 if(!isset($_POST['csrf_token'])||$_SESSION['csrf_token']!=$_POST['csrf_token']){
     header("location: ".url('register'));
@@ -14,6 +15,11 @@ if (isset($_POST['get_data'])) {
     $res=$conn->query($sql);
     $arr=array();
     while($row=$res->fetch_assoc()){
+        $row_raw=$row;
+        $row=[];
+        foreach($row_raw as $x=>$val){
+            $row[$x]=htmlentities(($val));
+        }
         $arr[]=$row;
     }
     echo json_encode($arr);
