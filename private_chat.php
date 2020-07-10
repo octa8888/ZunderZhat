@@ -28,7 +28,8 @@ if (!isset($_SESSION['user_id'])) {
     include 'header.php';
     ?>
     <script>
-        var msgId = <?=$_GET['msg_id']?>
+        var msgId = <?=$_GET['msg_id']?>;
+        var csrf_token = "<?=$_SESSION['csrf_token']?>";
     </script>
 
     <div class="body-content">
@@ -43,6 +44,7 @@ if (!isset($_SESSION['user_id'])) {
             </div> -->
         </div>
         <form action="controller/private_chat_controller.php" method="POST">
+            <input type="hidden" name="csrf_token" value="<?=$_SESSION['csrf_token']?>">
             <input type="hidden" name="msg_id" value="<?=$_GET['msg_id']?>">
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Input your message" name="message">

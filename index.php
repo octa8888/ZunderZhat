@@ -3,6 +3,7 @@ include 'helper/include.php';
 if (!isset($_SESSION['user_id'])) {
     header("location: login");
 }
+$_SESSION['csrf_token']=bin2hex(random_bytes(32));
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +28,9 @@ if (!isset($_SESSION['user_id'])) {
     <?php
     include 'header.php';
     ?>
+    <script>
+        var csrf_token = "<?=$_SESSION['csrf_token']?>";
+    </script>
 
     <div class="body-content">
         <div class="chat-part">
@@ -40,6 +44,7 @@ if (!isset($_SESSION['user_id'])) {
             </div> -->
         </div>
         <form action="controller/global_chat_controller.php" method="POST">
+            <input type="hidden" name="csrf_token" value="<?=$_SESSION['csrf_token']?>">
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Input your message" aria-label="Recipient's username" aria-describedby="button-addon2" name="message">
                 <div class="input-group-append">

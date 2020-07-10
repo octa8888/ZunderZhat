@@ -4,6 +4,7 @@ function getData(){
         method:'POST',
         data:{
             'get_req':'get_req',
+            'csrf_token':csrf_token
         },
         success:function(res){
             var data = JSON.parse(res);
@@ -16,11 +17,13 @@ function getData(){
                     </h2>
                     <div style="display:flex">
                         <form action="controller/friend_controller.php" method="post" style="margin-right:1vw">
+                            <input type="hidden" name="csrf_token" value="${csrf_token}">
                             <input type="hidden" name="friend_id" value="${data[i].from_id}">
                             <input type="hidden" name="req_id" value="${data[i].id}">
                             <button type="submit" class="btn btn-primary" name="accept">Accept</button>
                         </form>
                         <form action="controller/friend_controller.php" method="post">
+                            <input type="hidden" name="csrf_token" value="${csrf_token}">
                             <input type="hidden" name="friend_id" value="${data[i].from_id}">
                             <input type="hidden" name="req_id" value="${data[i].id}">
                             <button type="submit" class="btn btn-danger" name="reject">Reject</button>

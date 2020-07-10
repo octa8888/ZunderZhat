@@ -6,6 +6,7 @@ function getData() {
         data: {
             'get_messages': 'get_messages',
             'msg_id': msgId,
+            'csrf_token':csrf_token,
         },
         success: function (res) {
             var data = JSON.parse(res);
@@ -56,6 +57,7 @@ function uploadFile(e){
     formData.append('file',file);
     formData.append('file_upload','file_upload');
     formData.append('msg_id', msgId);
+    formData.append('csrf_token',csrf_token);
     $.ajax({
         url: '/ZunderZhat/controller/private_chat_controller.php',
         method: 'POST',

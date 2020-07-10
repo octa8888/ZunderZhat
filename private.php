@@ -27,6 +27,9 @@ if (!isset($_SESSION['user_id'])) {
     <?php
     include 'header.php';
     ?>
+    <script>
+        var csrf_token = "<?=$_SESSION['csrf_token']?>";
+    </script>
     <div class="body-content">
         <div class="chat-part">
             <!-- <div class="chat-content" style="cursor:pointer; width:100% !important;">

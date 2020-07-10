@@ -16,7 +16,11 @@
                 <a class="nav-link" href="friend" style="color:white">Friends</a>
             </li>
         </ul>
+        <?php
+            $_SESSION['csrf_token']=bin2hex(random_bytes(32));
+        ?>
         <form action="controller/logout_controller.php" method="POST" class="form-inline my-2 my-lg-0">
+            <input type="hidden" name="csrf_token" value="<?=$_SESSION['csrf_token']?>">
             <button class="btn btn-1 btn-outline-danger my-2 my-sm-0" type="submit">Log Out</button>
         </form>
     </div>

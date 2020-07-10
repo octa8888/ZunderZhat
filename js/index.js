@@ -5,6 +5,7 @@ function getData() {
         method: 'POST',
         data: {
             'get_data': 'get_data',
+            'csrf_token':csrf_token,
         },
         success: function (res) {
             var data = JSON.parse(res);
@@ -14,6 +15,7 @@ function getData() {
                 if(data[i].user_id==currUser){
                     style=`chat-content-2"`;
                 }
+                console.log(currUser)
                 html += `
                 <div class="${style}">
                     <div class="user">

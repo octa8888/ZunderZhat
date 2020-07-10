@@ -4,6 +4,7 @@ function getData() {
         method: 'POST',
         data: {
             'get_data': 'get_data',
+            'csrf_token':csrf_token,
         },
         success: function (res) {
             var data = JSON.parse(res);

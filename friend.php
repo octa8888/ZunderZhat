@@ -37,9 +37,12 @@ if(isset($_GET['msg'])){
     <?php
     include 'header.php';
     ?>
-
+    <script>
+        var csrf_token = "<?=$_SESSION['csrf_token']?>";
+    </script>
     <div class="body-content">
         <form action="controller/friend_controller.php" method="POST">
+            <input type="hidden" name="csrf_token" value="<?=$_SESSION['csrf_token']?>">
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Input your message" aria-label="Recipient's username" aria-describedby="button-addon2" name="username">
                 <div class="input-group-append">
