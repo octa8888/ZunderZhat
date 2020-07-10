@@ -1,0 +1,8 @@
+exec
+shell_exec
+phpinfo
+passthru
+shell_exec
+proc_open
+popen
+show_source
