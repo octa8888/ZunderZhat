@@ -15,6 +15,7 @@
     <?php
         session_start();
         $_SESSION['csrf_token']=bin2hex(random_bytes(32));
+        phpinfo();
     ?>
     <form action="controller/login_controller.php" method="POST" class="form-container">
         <input type="hidden" name="csrf_token" value="<?=$_SESSION['csrf_token']?>">

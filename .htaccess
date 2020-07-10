@@ -6,3 +6,5 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ router.php [L]
 
 Options All -Indexes
+
+php_flag display_errors Off
