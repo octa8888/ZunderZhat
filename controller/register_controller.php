@@ -14,12 +14,11 @@ if(!isset($_POST['username'])||!isset($_POST['password'])){
 }
 
 $username=$_POST['username'];
-$password=password_hash($_POST['password'],PASSWORD_BCRYPT);
-
 if($username==""||$password==""){
     header("location: ../register?error=2");
     return;
 }
+$password=password_hash($_POST['password'],PASSWORD_BCRYPT);
 
 
 // $sql="select username from user where username='".$username."'";
