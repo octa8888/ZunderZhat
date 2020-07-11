@@ -14,7 +14,7 @@ if(!isset($_POST['username'])||!isset($_POST['password'])){
 }
 
 $username=$_POST['username'];
-$password=$_POST['password'];
+$password=password_hash($_POST['password'],PASSWORD_BCRYPT);
 
 if($username==""||$password==""){
     header("location: ../register?error=2");

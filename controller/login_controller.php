@@ -16,20 +16,21 @@ if(!isset($_POST['username'])||!isset($_POST['password'])){
 $username=$_POST['username'];
 $password=$_POST['password'];
 
-// $sql="select * from user where username='".$username."' and password ='".$password."'";
+// $sql="select * from user where username='".$username."'";
 // $res=$conn->query($sql);
-$sql="select * from user where username= ? and password = ?";
+$sql="select * from user where username= ?";
 $stmt=$conn->prepare($sql);
-$stmt->bind_param("ss",$username,$password);
+$stmt->bind_param("s",$username);
 $stmt->execute();
 $res=$stmt->get_result();
 
 if($res->num_rows==1){
     $row=$res->fetch_assoc();
-    session_regenerate_id();
-    $_SESSION['user_id']=$row['id'];
-    header("location: ../index");
+    if(password_verify($password,$row['password'])){
+        session_regenerate_id();
+        $_SESSION['user_id']=$row['id'];
+        header("location: ../index");
+        return;
+    }
 }
-else{
-    header("location: ../login?error=1");
-}
+header("location: ../login?error=1");
