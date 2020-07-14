@@ -1,4 +1,6 @@
 <?php
+debug_backtrace() || header("location: index");
+
 include 'helper/include.php';
 if (!isset($_SESSION['user_id'])) {
     header("location: login");
@@ -43,7 +45,7 @@ if (!isset($_SESSION['user_id'])) {
                 </div>
             </div> -->
         </div>
-        <form action="controller/private_chat_controller.php" method="POST">
+        <form action="/ZunderZhat/controller/private_chat_controller.php" method="POST">
             <input type="hidden" name="csrf_token" value="<?=$_SESSION['csrf_token']?>">
             <input type="hidden" name="msg_id" value="<?=$_GET['msg_id']?>">
             <div class="input-group mb-3">

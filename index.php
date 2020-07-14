@@ -1,4 +1,6 @@
 <?php
+debug_backtrace() || header("location: index");
+
 include 'helper/include.php';
 if (!isset($_SESSION['user_id'])) {
     header("location: login");

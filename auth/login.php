@@ -13,10 +13,12 @@
 
 <body>
     <?php
+        debug_backtrace() || header("location: index");
+
         session_start();
         $_SESSION['csrf_token']=bin2hex(random_bytes(32));
     ?>
-    <form action="controller/login_controller.php" method="POST" class="form-container">
+    <form action="/ZunderZhat/controller/login_controller.php" method="POST" class="form-container">
         <input type="hidden" name="csrf_token" value="<?=$_SESSION['csrf_token']?>">
         <div class="form-group">
             <label for="exampleInputEmail1">Username</label>
